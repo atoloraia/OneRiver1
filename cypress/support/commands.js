@@ -28,6 +28,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import { login } from './selectors/login.js'
+import { tabs } from './selectors/tabs.js'
 
 const credentials = require('../config/credentials.json');
 
@@ -55,17 +56,18 @@ Cypress.Commands.add(
 );
 
 
-Cypress.Commands.add(
-	'loginViaAPI',
-	(login = Cypress.env('login'), password = Cypress.env('password')) => {
-		cy.session(login, () => {
-			cy.request('POST', `${Cypress.config('apiUrl')}/auth/login`, {
-				login: login,
-				password: password
-			}).then(response => {
-				expect(response.status).to.equal(200)
-				cy.visit('/')
-			})
-		})
-	}
-)
+Cypress.Commands.add('clickDashboardTab', () => {
+    cy.get(tabs.DASHBOARD).click()
+})
+
+Cypress.Commands.add('clickApplicationsTab', () => {
+    cy.get(tabs.APPLICATIONS).click()
+})
+
+Cypress.Commands.add('clickCustomerTab', () => {
+    cy.get(tabs.CUSTOMER).click()
+})
+
+Cypress.Commands.add('clickBusinessesTab', () => {
+    cy.get(tabs.BUSINESSES).click()
+})

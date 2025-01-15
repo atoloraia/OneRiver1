@@ -6,8 +6,8 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "qase:searchbar": "cross-env QASE_MODE=testops CODE=GF QASE_RUN_NAME=\"Searchbar Assertions\" npx cypress run --record --key 723fc69b-cb51-434e-a762-93c6dd887246 --group searchbar --env version=searchbar --spec=\"cypress/e2e/general_functionality/searchbarAssertions.spec.js\"",
-    "open:login": "npx cypress open --env version=login commandDelay=100"
+    "open:login": "npx cypress open --env version=login commandDelay=100",
+    "open:tabNavigation": "npx cypress open --env version=tabs commandDelay=100"
   },
   "author": "",
   "license": "ISC",
